@@ -21,5 +21,5 @@ export const getRememberMeCheckbox = (): Cypress.Chainable<JQuery<HTMLElement>> 
 export const getSigninBtn = (): Cypress.Chainable<JQuery<HTMLElement>> =>
   cy.get('[data-test="signin-submit"]');
 
-export const getSignUpLink = (): Cypress.Chainable<JQuery<HTMLElement>> =>
+export const getSignUpLink = (): Cypress.Chainable<JQuery<HTMLAnchorElement>> =>
   cy.get('[data-test="signup"]');
