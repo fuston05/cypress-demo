@@ -3,6 +3,6 @@
     "enabled": true
   },
   "e2e": {
-    "stepDefinitions": "cypress/e2e/pom/**/*[filepath].ts"
+    "stepDefinitions": ["cypress/e2e/pom/**/*[filepath].ts", "cypress/e2e/hooks/intercepts.ts"]
   }
 }
