@@ -1,0 +1,4 @@
+node_modules
+coverage
+cucumber-report.json
+package-lock.json

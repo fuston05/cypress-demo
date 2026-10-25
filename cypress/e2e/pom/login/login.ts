@@ -1,4 +1,6 @@
-import { Then } from "@badeball/cypress-cucumber-preprocessor";
-import * as login from "../login/all.ts"
+import { Then } from '@badeball/cypress-cucumber-preprocessor';
+import * as login from '../login/all.ts';
 
-Then("I type in my username", () => { });
+Then('I type in my username', () => {
+  console.log('testing');
+});

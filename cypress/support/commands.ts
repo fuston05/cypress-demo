@@ -28,19 +28,15 @@
 /// <reference path="./commands.d.ts" />
 
 Cypress.Commands.add('typePassword', (element: Cypress.Chainable<JQuery<HTMLElement>>) => {
-    cy.env(['password']).then(({
-        password,
-    }) => {
-        if (password === undefined) throw new Error('typePassword error: Password is not defined');
-        return element.clear().type(password, { log: false });
-    });
+  cy.env(['password']).then(({ password }) => {
+    if (password === undefined) throw new Error('typePassword error: Password is not defined');
+    return element.clear().type(password, { log: false });
+  });
 });
 
-Cypress.Commands.add("typeUsername", (element: Cypress.Chainable<JQuery<HTMLElement>>) => {
-    cy.env(['username']).then(({
-        username,
-    }) => {
-        if (username === undefined) throw new Error('typeUsername error: Username is not defined');
-        return element.type(username);
-    });
+Cypress.Commands.add('typeUsername', (element: Cypress.Chainable<JQuery<HTMLElement>>) => {
+  cy.env(['username']).then(({ username }) => {
+    if (username === undefined) throw new Error('typeUsername error: Username is not defined');
+    return element.type(username);
+  });
 });

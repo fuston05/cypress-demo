@@ -3,19 +3,21 @@
   "version": "1.0.0",
   "description": "Cypress Demo — Real World App Automation",
   "type": "module",
+  "author": "Scott Fuston",
+  "license": "UNLICENSED",
+  "homepage": "https://github.com/fuston05/cypress-demo#readme",
   "scripts": {
     "test": "npx cypress run --browser chrome --headless",
     "gui": "npx cypress open",
     "lint": "eslint \"cypress/**/*.ts\"",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "install:clean": "npm install --legacy-peer-deps"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/fuston05/cypress-demo.git"
   },
-  "author": "Scott Fuston",
-  "license": "UNLICENSED",
-  "homepage": "https://github.com/fuston05/cypress-demo#readme",
   "devDependencies": {
     "@bahmutov/cypress-esbuild-preprocessor": "^2.2.8",
     "@eslint/js": "^10.0.1",
@@ -23,9 +25,11 @@
     "cypress": "^16.2.0",
     "esbuild": "^0.28.2",
     "eslint": "^10.13.0",
+    "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-cypress": "^7.0.2",
     "globals": "^17.13.0",
     "jiti": "^2.7.0",
+    "prettier": "^3.9.10",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.72.0"
   },
