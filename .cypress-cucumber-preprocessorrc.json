@@ -1,0 +1,8 @@
+{
+  "json": {
+    "enabled": true
+  },
+  "e2e": {
+    "stepDefinitions": "cypress/e2e/pom/**/*[filepath].ts"
+  }
+}

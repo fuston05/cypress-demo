@@ -1,0 +1,28 @@
+{
+  "name": "cypress-demo",
+  "version": "1.0.0",
+  "description": "Cypress Demo — Real World App Automation",
+  "type": "module",
+  "scripts": {
+    "test": "npx cypress run --browser chrome --headless",
+    "gui": "npx cypress open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fuston05/cypress-demo.git"
+  },
+  "author": "Scott Fuston",
+  "license": "UNLICENSED",
+  "homepage": "https://github.com/fuston05/cypress-demo#readme",
+  "devDependencies": {
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.8",
+    "@types/node": "^26.6.5",
+    "cypress": "^16.2.0",
+    "esbuild": "^0.28.2",
+    "typescript": "^7.0.2"
+  },
+  "dependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^28.0.1",
+    "dotenv": "^18.0.9"
+  }
+}
