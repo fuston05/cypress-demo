@@ -1,3 +1,3 @@
 beforeEach(() => {
-    cy.visit('/')
-})
+  cy.visit('/');
+});

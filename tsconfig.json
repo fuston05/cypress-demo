@@ -1,20 +1,12 @@
 {
   "compilerOptions": {
     "target": "es6",
-    "lib": [
-      "es6",
-      "dom"
-    ],
+    "lib": ["es6", "dom"],
     "noEmit": true,
     "allowImportingTsExtensions": true,
-    "types": [
-      "cypress",
-      "node"
-    ],
+    "types": ["cypress", "node"],
     "module": "NodeNext",
     "moduleResolution": "NodeNext"
   },
-  "include": [
-    "**/*.ts", "eslint.config.js",
-  ]
+  "include": ["**/*.ts", "eslint.config.js"]
 }
