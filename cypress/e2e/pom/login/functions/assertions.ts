@@ -1,8 +1,8 @@
 import * as ele from '../elements/main.ts';
 import * as utils from '../../../common/utils.ts';
 
-const assertSubmitErrorVisible = (isVisible: boolean): Cypress.Chainable<JQuery<HTMLElement>> =>
-  utils.assertEleVisible(isVisible, ele.getSubmitError());
+const assertSubmitErrorExists = (shouldExist: boolean): Cypress.Chainable<JQuery<HTMLElement>> =>
+  utils.assertEleExists(shouldExist, ele.getSubmitError());
 
 const assertSubmitErrorText = (expectedText: string): Cypress.Chainable<JQuery<HTMLElement>> =>
   utils.assertEleTextContains(ele.getSubmitError(), expectedText);
@@ -46,7 +46,7 @@ const assertSignupLinkHref = (expectedHref: string): Cypress.Chainable<JQuery<HT
   utils.assertLinkHrefContains(ele.getSignUpLink(), expectedHref);
 
 export {
-  assertSubmitErrorVisible,
+  assertSubmitErrorExists,
   assertSubmitErrorText,
   assertPageLogoVisible,
   assertPageTitleVisible,
