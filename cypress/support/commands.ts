@@ -24,6 +24,7 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
+// eslint-disable-next-line @typescript-eslint/triple-slash-reference
 /// <reference path="./commands.d.ts" />
 
 Cypress.Commands.add('typePassword', (element: Cypress.Chainable<JQuery<HTMLElement>>) => {
