@@ -10,6 +10,12 @@ const assertEleVisible = <T extends HTMLElement>(
 ): Cypress.Chainable<JQuery<T>> =>
   isVisible ? element.should('be.visible') : element.should('not.be.visible');
 
+const assertEleExists = <T extends HTMLElement>(
+  shouldExist: boolean,
+  element: Cypress.Chainable<JQuery<T>>,
+): Cypress.Chainable<JQuery<T>> =>
+  shouldExist ? element.should('exist') : element.should('not.exist');
+
 const assertEleTextContains = <T extends HTMLElement>(
   element: Cypress.Chainable<JQuery<T>>,
   expectedText: string,
@@ -44,6 +50,7 @@ const assertLinkHrefContains = (
 export {
   typeIntoInput,
   assertEleVisible,
+  assertEleExists,
   assertEleTextContains,
   assertInputValueContains,
   assertEleDisabled,
