@@ -15,6 +15,9 @@ export const getUsernameInputError = (): Cypress.Chainable<JQuery<HTMLElement>> 
 export const getPasswordInput = (): Cypress.Chainable<JQuery<HTMLElement>> =>
   cy.get('[data-test="signin-password"] input');
 
+export const getPasswordInputError = (): Cypress.Chainable<JQuery<HTMLElement>> =>
+  cy.get('[data-test="signin-password"] #password-helper-text');
+
 export const getRememberMeCheckbox = (): Cypress.Chainable<JQuery<HTMLElement>> =>
   cy.get('[data-test="signin-remember-me"] input');
 
