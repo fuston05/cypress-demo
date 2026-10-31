@@ -38,10 +38,9 @@ Feature: Login
         And I assert the "submit" error contains "Username or password is invalid"
 
     Scenario: Signup link works
-        When I click the signup link
+        When I click the "Signup" link
         Then I assert the current url contains "/signup"
-
-        When I go back
+        When I click the "Signin" link
         Then I assert the current url contains "/signin"
 
     Scenario: Login with remember me enabled

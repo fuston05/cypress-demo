@@ -2,84 +2,99 @@
 
 import * as ele from '../elements/main.ts';
 import * as utils from '../../../common/utils.ts';
+import { SignupFields } from '../../types.js';
 
-type SignupInput = 'firstName' | 'lastName' | 'username' | 'password' | 'confirmPassword';
-
-const getInput = (input: SignupInput): Cypress.Chainable<JQuery<HTMLElement>> => {
-  switch (input) {
-    case 'firstName':
+const getInput = (field: SignupFields['field']): Cypress.Chainable<JQuery<HTMLElement>> => {
+  switch (field) {
+    case 'firstname':
       return ele.getFirstNameInput();
-    case 'lastName':
+    case 'lastname':
       return ele.getLastNameInput();
     case 'username':
       return ele.getUsernameInput();
     case 'password':
       return ele.getPasswordInput();
-    case 'confirmPassword':
+    case 'confirm password':
       return ele.getConfirmPasswordInput();
+    default:
+      throw new Error(`Invalid Signup field: ${field}`);
   }
 };
 
-const getInputError = (input: SignupInput): Cypress.Chainable<JQuery<HTMLElement>> => {
-  switch (input) {
-    case 'firstName':
+const getInputError = (field: SignupFields['field']): Cypress.Chainable<JQuery<HTMLElement>> => {
+  switch (field) {
+    case 'firstname':
       return ele.getFirstNameInputError();
-    case 'lastName':
+    case 'lastname':
       return ele.getLastNameInputError();
     case 'username':
       return ele.getUsernameInputError();
     case 'password':
       return ele.getPasswordInputError();
-    case 'confirmPassword':
+    case 'confirm password':
       return ele.getConfirmPasswordInputError();
+    default:
+      throw new Error(`Invalid Signup field: ${field}`);
   }
 };
 
 const assertSubmitErrorExists = (shouldExist: boolean): Cypress.Chainable<JQuery<HTMLElement>> =>
-  utils.assertEleExists(shouldExist, ele.getSubmitError());
+  utils.assertEleExists(shouldExist, ele.getSubmitError()).as('Assert - Submit error exists');
 
 const assertSubmitErrorText = (expectedText: string): Cypress.Chainable<JQuery<HTMLElement>> =>
-  utils.assertEleTextContains(ele.getSubmitError(), expectedText);
+  utils.assertEleTextContains(ele.getSubmitError(), expectedText).as('Assert - Submit error text');
 
 const assertPageLogoVisible = (isVisible: boolean): Cypress.Chainable<JQuery<HTMLElement>> =>
-  utils.assertEleVisible(isVisible, ele.getPageLogo());
+  utils.assertEleVisible(isVisible, ele.getPageLogo()).as('Assert - Page logo visibility');
 
 const assertPageTitleVisible = (
-  isVisible: boolean,
+  isVisible: boolean
 ): Cypress.Chainable<JQuery<HTMLHeadingElement>> =>
-  utils.assertEleVisible(isVisible, ele.getPageTitle());
+  utils.assertEleVisible(isVisible, ele.getPageTitle()).as('Assert - Page title visibility');
 
 const assertInputVisible = (
-  input: SignupInput,
-  isVisible: boolean,
-): Cypress.Chainable<JQuery<HTMLElement>> => utils.assertEleVisible(isVisible, getInput(input));
+  input: SignupFields['field'],
+  isVisible: boolean
+): Cypress.Chainable<JQuery<HTMLElement>> =>
+  utils.assertEleVisible(isVisible, getInput(input)).as(`Assert - ${input} input visibility`);
 
 const assertInputValueContains = (
-  input: SignupInput,
-  expectedValue: string,
+  input: SignupFields['field'],
+  expectedValue: string
 ): Cypress.Chainable<JQuery<HTMLElement>> =>
-  utils.assertInputValueContains(getInput(input), expectedValue);
+  utils
+    .assertInputValueContains(getInput(input), expectedValue)
+    .as(`Assert - ${input} input value`);
 
 const assertInputErrorExists = (
-  input: SignupInput,
-  shouldExist: boolean,
+  input: SignupFields['field'],
+  shouldExist: boolean
 ): Cypress.Chainable<JQuery<HTMLElement>> =>
-  utils.assertEleExists(shouldExist, getInputError(input));
+  utils.assertEleExists(shouldExist, getInputError(input)).as(`Assert - ${input} error exists`);
 
 const assertInputErrorText = (
-  input: SignupInput,
-  expectedText: string,
+  input: SignupFields['field'],
+  expectedText: string
 ): Cypress.Chainable<JQuery<HTMLElement>> =>
-  utils.assertEleTextContains(getInputError(input), expectedText);
+  utils
+    .assertEleTextContains(getInputError(input), expectedText)
+    .as(`Assert - ${input} error text`);
 
 const assertSignupBtnDisabled = (isDisabled: boolean): Cypress.Chainable<JQuery<HTMLElement>> =>
-  utils.assertEleDisabled(isDisabled, ele.getSignupBtn());
+  utils.assertEleDisabled(isDisabled, ele.getSignupBtn()).as('Assert - Sign-up button state');
 
 const assertSignInLinkText = (expectedText: string): Cypress.Chainable<JQuery<HTMLAnchorElement>> =>
-  utils.assertEleTextContains(ele.getSignInLink(), expectedText);
+  utils.assertEleTextContains(ele.getSignInLink(), expectedText).as('Assert - Sign-in link text');
 
 const assertSignInLinkHref = (expectedHref: string): Cypress.Chainable<JQuery<HTMLAnchorElement>> =>
-  utils.assertLinkHrefContains(ele.getSignInLink(), expectedHref);
+  utils.assertLinkHrefContains(ele.getSignInLink(), expectedHref).as('Assert - Sign-in link href');
+
+const assertSignupResponseCode = (expectedStatusCode: number): Cypress.Chainable<number> =>
+  cy
+    .get('@signup')
+    .its('response.statusCode')
+    .should('eq', expectedStatusCode)
+    .as('Assert - Signup response code');
 
 export {
   assertSubmitErrorExists,
@@ -93,4 +108,5 @@ export {
   assertSignupBtnDisabled,
   assertSignInLinkText,
   assertSignInLinkHref,
+  assertSignupResponseCode,
 };
