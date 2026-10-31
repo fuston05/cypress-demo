@@ -10,6 +10,7 @@
     "test": "npx cypress run --browser firefox --headless",
     "gui": "npx cypress open --browser firefox",
     "lint": "eslint \"cypress/**/*.ts\"",
+    "typecheck": "tsc --noEmit --skipLibCheck",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "install:clean": "npm install --legacy-peer-deps"
