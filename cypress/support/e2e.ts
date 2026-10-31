@@ -15,3 +15,13 @@
 
 import './commands.ts';
 import '../e2e/hooks/common.ts';
+import { slowCypressDown } from 'cypress-slow-down';
+import support from 'cypress-timestamps/support.js';
+
+if (Cypress.config('isInteractive')) slowCypressDown(25);
+support({
+  terminal: true,
+  error: true,
+  commandLog: true,
+  elapsed: false,
+});
