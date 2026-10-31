@@ -8,6 +8,8 @@ import registerTimestamps from 'cypress-timestamps/plugin.js';
 export default defineConfig({
   e2e: {
     specPattern: '**/*.feature',
+    viewportHeight: 768,
+    viewportWidth: 1366,
     env: {
       username: process.env.CYPRESS_USERNAME,
       password: process.env.CYPRESS_PASSWORD,

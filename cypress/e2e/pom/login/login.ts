@@ -1,6 +1,5 @@
 import { Then, When } from '@badeball/cypress-cucumber-preprocessor';
 import * as login from '../login/all.ts';
-import * as utils from '../../common/utils.ts';
 
 When('I type the configured username into the username field', () =>
   login.actions.typeConfiguredUsername()
@@ -27,10 +26,6 @@ When('I blur the username field to trigger the error', () => login.actions.blurU
 When('I click the signin button', () => {
   login.actions.clickSigninBtn().wait('@login');
 });
-
-When('I click the signup link', () => login.actions.clickSignUpLink());
-
-When('I go back', () => cy.go('back'));
 
 /** ********************* ASSERTIONS *********************** */
 /** ******************************************************** */
@@ -68,10 +63,6 @@ Then('I assert the signin button is {string}', (state: 'enabled' | 'disabled') =
   login.assertions.assertSigninBtnDisabled(state === 'disabled')
 );
 
-Then('I assert the current url contains {string}', (url: 'signin' | 'signup') =>
-  utils.assertCurrentUrl(url)
-);
-
 Then('I assert the signup link text contains {string}', (expectedUrlText: string) =>
   login.assertions.assertSignupLinkText(expectedUrlText)
 );
@@ -82,10 +73,6 @@ Then('I assert the signup link HREF contains {string}', (expectedHref: string) =
 
 Then('I assert the login response code is {string}', (responseCode: string) => {
   const expectedStatusCode = Number(responseCode);
-
-  if (!Number.isInteger(expectedStatusCode)) {
-    throw new Error(`Invalid /login response code: ${responseCode}`);
-  }
 
   return login.assertions.assertLoginResponseCode(expectedStatusCode);
 });
