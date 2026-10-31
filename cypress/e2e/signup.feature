@@ -7,7 +7,7 @@ Feature: Signup
     Background: Open the signup form
         When I click the "signup" link
 
-    Scenario: The basics
+    Scenario: Defaults URL and Signup button state 
         Then I assert the current url contains "/signup"
         And I assert the signup button is "enabled"
 
