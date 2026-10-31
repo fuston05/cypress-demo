@@ -63,7 +63,7 @@ const blurField = (field: SignupFields['field']) => {
       blurConfirmPasswordInput();
       break;
     default:
-      throw new Error(`Unknow field: ${field}`);
+      throw new Error(`Unknown field: ${field}`);
   }
 };
 
