@@ -1,3 +1,5 @@
+/** LOGIN ELEMENTS */
+
 export const getSubmitError = (): Cypress.Chainable<JQuery<HTMLElement>> =>
   cy.get('.MuiAlert-message');
 

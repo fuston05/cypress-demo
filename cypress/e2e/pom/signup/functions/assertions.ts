@@ -1,3 +1,5 @@
+/** SIGNUP ASSERTIONS */
+
 import * as ele from '../elements/main.ts';
 import * as utils from '../../../common/utils.ts';
 
