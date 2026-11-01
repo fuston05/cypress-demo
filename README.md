@@ -74,6 +74,7 @@ The interactive run applies a small command delay to make test activity easier t
 
 ```bash
 npm run lint
+npm run typecheck
 npm run format:check
 ```
 
