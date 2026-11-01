@@ -1,7 +1,7 @@
 @login
 
 Feature: Login
-
+    # TODO: assert logged in.
     As a user I can log in
 
     Scenario: Login form validation
