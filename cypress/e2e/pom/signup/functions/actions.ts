@@ -1,6 +1,6 @@
 /** SIGNUP ACTIONS */
 
-import * as ele from '../elements/main.ts';
+import * as ele from '../elements/elements.ts';
 import * as utils from '../../../common/utils.ts';
 import { SignupFields } from '../../types.js';
 

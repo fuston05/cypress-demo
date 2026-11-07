@@ -1,7 +1,7 @@
 /** HOME / SIDE NAVIGATION ASSERTIONS */
 
-import * as ele from '../elements/main.ts';
-import * as headerEle from '../../header/elements/main.ts';
+import * as ele from '../elements/elements.ts';
+import * as headerEle from '../../header/elements/elements.ts';
 import * as utils from '../../../../common/utils.ts';
 
 const assertSideNavVisible = (isVisible: boolean): Cypress.Chainable<JQuery<HTMLElement>> =>

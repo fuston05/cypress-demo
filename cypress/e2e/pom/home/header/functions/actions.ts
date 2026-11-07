@@ -1,6 +1,6 @@
 /** HOME / HEADER ACTIONS */
 
-import * as ele from '../elements/main.ts';
+import * as ele from '../elements/elements.ts';
 
 const clickHeaderHamburgerMenuBtn = (): Cypress.Chainable<JQuery<HTMLElement>> =>
   ele.getHamburgerMenuBtn().click().as('Click - Header hamburger menu button');

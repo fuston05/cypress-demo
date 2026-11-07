@@ -1,6 +1,6 @@
 /** HOME / SIDE NAVIGATION ACTIONS */
 
-import * as ele from '../elements/main.ts';
+import * as ele from '../elements/elements.ts';
 
 const clickSideNavHomeBtn = (): Cypress.Chainable<JQuery<HTMLAnchorElement>> =>
   ele.getHomeBtn().click().as('Click - Side nav Home');
