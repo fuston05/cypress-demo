@@ -1,6 +1,6 @@
 /** HOME / MAIN ACTIONS */
 
-import * as ele from '../elements/main.ts';
+import * as ele from '../elements/elements.ts';
 
 /**
  * @description Opens transaction detail view

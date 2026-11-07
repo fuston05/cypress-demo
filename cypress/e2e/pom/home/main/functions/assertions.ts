@@ -1,6 +1,6 @@
 /** HOME / MAIN ASSERTIONS */
 
-import * as ele from '../elements/main.ts';
+import * as ele from '../elements/elements.ts';
 import * as utils from '../../../../common/utils.ts';
 
 const assertTransactionDateRangeFilterVisible = (
